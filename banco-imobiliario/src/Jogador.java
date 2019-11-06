@@ -1,9 +1,17 @@
+import java.util.ArrayList;
+import java.util.List;
 
 public class Jogador {
 	private String nome;
-	private double saldo = 100.00;
-	private Propriedade[] propriedades;
+	private double saldo;
+	private List<Propriedade> propriedades;
 	
+	public Jogador ( String nome, double saldo )
+	{
+		this.nome = nome;
+		this.saldo = saldo;
+		this.propriedades = new ArrayList<Propriedade>();
+	}
 	
 	public double getSaldo() {
 		return saldo;
@@ -21,11 +29,8 @@ public class Jogador {
 		this.nome = nome;
 	}
 	
-	public void setPropriedade(Propriedade propriedade) {
-		for(int i = 0 ; i<propriedades.length; i++ ) {
-			if(propriedades[i] == null) {
-				propriedades[i] = propriedade;
-			}
-		}
+	public void adicionarPropriedade (Propriedade p)
+	{
+		this.propriedades.add(p);
 	}
 }

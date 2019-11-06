@@ -1,13 +1,15 @@
+import java.util.ArrayList;
+import java.util.List;
 
 public class Tabuleiro {
-	private Espaco[] espacos;
+	public List<Espaco> espacos;
 
-	public Espaco[] getEspacos() {
-		return espacos;
+	public Tabuleiro(){
+		this.espacos = new ArrayList<Espaco>();
 	}
 
-	public void setEspacos(Espaco[] espacos) {
-		this.espacos = espacos;
+	
+	public void adicionarEspaco(Espaco espaco) {
+		this.espacos.add(espaco);
 	}
-
 }

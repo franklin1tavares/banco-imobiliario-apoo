@@ -1,9 +1,17 @@
 
 public class Propriedade {
-	private double valor = 50.00;
-	private double valorAluguel = 15.00;
-	private int quantidadeCasas = 0;
-	private double valorConstrucaoCasa = 30.00;
+	private double valor;
+	private double valorAluguel;
+	private int quantidadeCasas;
+	private double valorConstrucaoCasa;
+	
+	
+	public Propriedade(double valor, double valorAluguel, double valorConstrucaoCasa ){
+		this.valor = valor;
+		this.valorAluguel = valorAluguel ;
+		this.quantidadeCasas = 0;
+		this.valorConstrucaoCasa = valorConstrucaoCasa ;
+	}
 	
 	public double getValor() {
 		return valor;
