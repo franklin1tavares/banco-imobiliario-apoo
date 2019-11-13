@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Jogo {
@@ -6,6 +7,7 @@ public class Jogo {
 	
 	public Jogo(Tabuleiro tabuleiro) {
 		this.tabuleiro = tabuleiro;
+		this.jogadores = new ArrayList<Jogador>();
 	}
 	
 	public Tabuleiro getTabuleiro() {
@@ -17,11 +19,12 @@ public class Jogo {
 	}
 	
 	
-	public void criarJogador(String nome, Double saldo, int posicao) {
+	public void criarJogador(String nome, Double saldo) {
 		// Criar um objeto jogador com aquele nome
-		Jogador jogador = new Jogador(nome, saldo, posicao); 
+		Jogador jogador = new Jogador(nome, saldo); 
+		
 		// Adiciona na lista de jogadores
-		this.jogadores.add(jogador);
+		jogadores.add(jogador);
 		
 	}
 }
