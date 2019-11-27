@@ -31,10 +31,17 @@ public class Jogo {
 	public void comprarPropriedade(Propriedade propriedade, Jogador jogador) {
 		// verifica se tem valor
 		
-		//ja deu certo
-		double saldo = jogador.getSaldo() - propriedade.getValor();
-		jogador.setSaldo(saldo);
-		jogador.adicionarPropriedade(propriedade);
+		if(	jogador.getSaldo() >= propriedade.getValor()) {
+			//ja deu certo
+			double saldo = jogador.getSaldo() - propriedade.getValor();
+			jogador.setSaldo(saldo);
+			jogador.adicionarPropriedade(propriedade);
+		}
+
+		else {
+			System.out.println("Não comprou a propriedade porque você ta sem dinheiro!");
+		}
+
 	}
 	
 	public Jogador donoDe(Propriedade propriedade)
