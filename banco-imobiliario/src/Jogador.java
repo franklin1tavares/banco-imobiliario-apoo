@@ -19,6 +19,10 @@ public class Jogador {
 		return saldo;
 	}
 
+	public List<Propriedade> getPropriedades ()
+	{
+		return this.propriedades;
+	}
 	
 	public void setSaldo(double saldo) {
 		this.saldo = saldo;
@@ -43,11 +47,8 @@ public class Jogador {
 
 	public void setEspaco(Espaco espaco) {
 		this.espaco = espaco;
-		/*
-		this.posicao = posicao + this.posicao;
-		if(this.posicao> 6) {
-			this.posicao = this.posicao-6;
-		}
-		*/
+
 	}
+	
+
 }

@@ -69,7 +69,40 @@ public class Main {
 				
 				Espaco espaco = t.moverJogador(jogadorDaVez, dado);
 				
-				// se espaco.propriedade == null
+				
+
+				if (jogadorDaVez.getEspaco().getProriedade() == null) {
+					System.out.println("Parada Livre!");
+				}
+				
+				Propriedade propriedadeTalvez = jogadorDaVez.getEspaco().getProriedade();
+				
+				if ( propriedadeTalvez!= null) {
+					
+					Jogador donoTalvez = jogo.donoDe( propriedadeTalvez );
+					
+					if ( donoTalvez != null ) {
+						System.out.println("batata 1");
+					}
+					if(donoTalvez == null) {
+						
+						
+						
+						System.out.println("A propriedade não tem dono! \n Deseja compra-la? \n Digite: \n [1] Sim \n [2] Não");
+						int entrada;
+						entrada = input.nextInt();
+						if(entrada == 2) {
+							System.out.println("Não comprou");
+						}
+						else {
+							Propriedade propriedade = jogadorDaVez.getEspaco().getProriedade();
+							System.out.println(propriedade.getValor());
+							jogo.comprarPropriedade(propriedade, jogadorDaVez);
+						}
+					}
+					
+				}
+				
 				//	nao tem propriedad - parada livre
 				//	senao
 				//		Se o dono for o jogadordaVez
@@ -77,7 +110,7 @@ public class Main {
 				// 		se o dono for o banco
 				//			o jogador vai escolher entre comprar a propriedade ou pagar o aluguel
 				//		se o dono for outro jogador
-				//			pagarAluguel()	
+			
 				
 				try {
 					Thread.sleep(3000);
@@ -99,4 +132,6 @@ public class Main {
 			// Andar o jogador
 			// Realizar ação de acordo de onde caiu
 	}
+
+	
 }

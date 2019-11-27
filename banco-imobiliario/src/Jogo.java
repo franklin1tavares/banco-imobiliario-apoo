@@ -27,6 +27,27 @@ public class Jogo {
 		jogadores.add(jogador);
 		
 	}
+	
+	public void comprarPropriedade(Propriedade propriedade, Jogador jogador) {
+		// verifica se tem valor
+		
+		//ja deu certo
+		double saldo = jogador.getSaldo() - propriedade.getValor();
+		jogador.setSaldo(saldo);
+		jogador.adicionarPropriedade(propriedade);
+	}
+	
+	public Jogador donoDe(Propriedade propriedade)
+	{
+		for(Jogador jogador : jogadores) {
+			if(jogador.getPropriedades().contains(propriedade))
+			{
+				return jogador;
+			}
+		}
+		
+		return null;
+	}
 }
 
 
