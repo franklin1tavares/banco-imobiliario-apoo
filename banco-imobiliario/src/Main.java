@@ -28,7 +28,7 @@ public class Main {
 		for(int i = 0; i<quantJogadores; i++) {
 			System.out.println("Digite seu nome:");
 			String nome = input.next();
-			Double saldo = 100.00;
+			Double saldo = 200.00;
 			jogo.criarJogador(nome, saldo);
 		}
 		//cria as propriedades
@@ -88,6 +88,8 @@ public class Main {
 					// ---------------------FUNÇÃO COMPRAR PROPRIEDADE--------------------------
 					//verifica se não tem dono
 					if(donoTalvez == null) {
+						
+						//INDICA QUE QUER COMPRAR
 						System.out.println("A propriedade nao tem dono! \n Deseja compra-la? \n Digite: \n [1] Sim \n [2] Não");
 						int entrada;
 						entrada = input.nextInt();
@@ -100,7 +102,10 @@ public class Main {
 						//se ele ,quiser comprar
 						else {
 							Propriedade propriedade = jogadorDaVez.getEspaco().getProriedade();
-							System.out.println(propriedade.getValor());
+							
+							//MOSTRA O VALOR DA PROPRIEDADE
+							System.out.println("O valor da propriedade é: " + propriedade.getValor());
+							
 							//função de comprar propriedade
 							jogo.comprarPropriedade(propriedade, jogadorDaVez);
 							System.out.println("---------------------------------------------\n");
@@ -109,20 +114,25 @@ public class Main {
 					}
 					
 					
-					// ---------------------FUNÇÃO CONSTRUIR CASA--------------------------
 					if(donoTalvez != null ) {
-						
+						// ---------------------FUNÇÃO CONSTRUIR CASA--------------------------
 						if(donoTalvez.equals(jogadorDaVez)) {
 							System.out.println("Você caiu em um propriedade que já é sua, deseja construir uma casa? \n");
 							System.out.println("Digite [1] se sim \nDigite [2] se não \n");
 							int entradaSN = input.nextInt();
 							
 							if(entradaSN == 1 ) {
-								System.out.println("-----Construir casa-----");
+								
+								System.out.println("-----FUNÇÃO CONSTRUIR CASA-----\n");
+								System.out.println("O valor para construir a casa é: "+ jogadorDaVez.getEspaco().getProriedade().getValorConstrucaoCasa());
+								
 								if(jogadorDaVez.getSaldo() >= jogadorDaVez.getEspaco().getProriedade().getValorConstrucaoCasa()) {
 									jogadorDaVez.setSaldo(jogadorDaVez.getSaldo()-jogadorDaVez.getEspaco().getProriedade().getValorConstrucaoCasa());
 									jogadorDaVez.getEspaco().getProriedade().setQuantidadeCasas(jogadorDaVez.getEspaco().getProriedade().getQuantidadeCasas() + 1);
 									jogadorDaVez.getEspaco().getProriedade().setValorAluguel(jogadorDaVez.getEspaco().getProriedade().getValorAluguel() + 5);
+									System.out.println("Casa construida com sucesso \n");
+									System.out.println("Seu novo saldo é: "+ jogadorDaVez.getSaldo());
+									System.out.println("---------------------------------------------\n");
 								}
 							}
 							else {
@@ -132,15 +142,16 @@ public class Main {
 						}
 						else {
 							// ---------------------FUNÇÃO PAGAR ALUGUEL--------------------------
-							//MOSTRA O VALOR DO ALUGUEL E INFORMA QUE O JOGADOR NÃO TEM DINHEIRO PARA PAGAR E REMOVE O JOGADOR
-							System.out.println("O valor do aluguel é:" + propriedadeTalvez.getValorAluguel());
+							//MOSTRA O VALOR DO ALUGUEL 
+							System.out.println("Essa propriedade não é sua, pague o alugue! \n");
+							System.out.println("O valor do aluguel é: " + propriedadeTalvez.getValorAluguel());
+							
+							//INFORMA QUE O JOGADOR NÃO TEM DINHEIRO PARA PAGAR E REMOVE O JOGADOR
 							if(jogadorDaVez.getSaldo()<propriedadeTalvez.getValorAluguel()) {
 								System.out.println("O jogador não tem dinheiro para pagar o aluguel \n");
-								
 								quantJogadores = jogo.removerJogador(jogadorDaVez, quantJogadores);
-					
-								
 							}
+							
 							//DESCONTA O VALOR DO JOGADOR DA VEZ E ACRESCENTA AO DONO DA PROPRIEDADE
 							else {
 								jogadorDaVez.setSaldo(jogadorDaVez.getSaldo()- propriedadeTalvez.getValorAluguel());

@@ -54,10 +54,11 @@ public class Jogo {
 		// verifica se tem valor
 		
 		if(	jogador.getSaldo() >= propriedade.getValor()) {
-			//ja deu certo
+			//PAGA AO BANCO
 			double saldo = jogador.getSaldo() - propriedade.getValor();
 			jogador.setSaldo(saldo);
 			jogador.adicionarPropriedade(propriedade);
+			//CONFIRMAÇÃO
 			System.out.println("Propriedade adquirida! \n");
 		}
 
@@ -66,7 +67,6 @@ public class Jogo {
 		}
 
 	}
-	
 
 	
 	public Jogador donoDe(Propriedade propriedade)
