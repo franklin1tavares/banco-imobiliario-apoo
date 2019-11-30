@@ -17,7 +17,7 @@ public class Espaco {
 		this.proriedade = proriedade;
 	}
 	
-	//coloca o jogador no arrayList de jogadores no espaço
+	//coloca o jogador no arrayList de jogadores no espaÃ§o
 	public void associarjogador(Jogador jogador) {
 		jogadores.add(jogador);
 	}

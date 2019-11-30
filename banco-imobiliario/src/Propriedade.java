@@ -38,6 +38,4 @@ public class Propriedade {
 	public void setQuantidadeCasas(int quantidadeCasas) {
 		this.quantidadeCasas = quantidadeCasas;
 	}
-	
-	
 }

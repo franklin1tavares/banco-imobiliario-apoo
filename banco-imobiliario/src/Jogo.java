@@ -18,6 +18,28 @@ public class Jogo {
 		this.tabuleiro = tabuleiro;
 	}
 	
+	public int removerJogador(Jogador jogadorFalido, int quantJogadores) {
+		for(Jogador jogador : jogadores) {
+			if(jogadorFalido.equals(jogador)) {
+				System.out.println("O jogador "+ jogadorFalido.getNome() + " foi eliminado do jogo!");
+				jogadores.remove(jogador);
+				quantJogadores--;
+				return quantJogadores;
+			}
+			
+		}
+		return 0;
+	}
+	
+	public String buscaJogador() {
+		
+		for(Jogador jogador : jogadores) {
+			if(jogador.getNome() != null) {
+				return jogador.getNome();
+			}
+		}
+		return null;
+	}
 	
 	public void criarJogador(String nome, Double saldo) {
 		// Criar um objeto jogador com aquele nome
@@ -36,13 +58,16 @@ public class Jogo {
 			double saldo = jogador.getSaldo() - propriedade.getValor();
 			jogador.setSaldo(saldo);
 			jogador.adicionarPropriedade(propriedade);
+			System.out.println("Propriedade adquirida! \n");
 		}
 
 		else {
-			System.out.println("Não comprou a propriedade porque você ta sem dinheiro!");
+			System.out.println("NÃ£o comprou a propriedade porque vocÃª ta sem dinheiro!");
 		}
 
 	}
+	
+
 	
 	public Jogador donoDe(Propriedade propriedade)
 	{
@@ -52,7 +77,6 @@ public class Jogo {
 				return jogador;
 			}
 		}
-		
 		return null;
 	}
 }

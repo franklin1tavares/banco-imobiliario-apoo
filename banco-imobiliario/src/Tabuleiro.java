@@ -28,7 +28,7 @@ public class Tabuleiro {
 		jogador.setEspaco(espaco);
 		
 		
-		System.out.println("Sua nova posição é: " + posicao);
+		System.out.println("Sua nova posicao Ã©: " + posicao);
 		return espaco;
 		
 	}
