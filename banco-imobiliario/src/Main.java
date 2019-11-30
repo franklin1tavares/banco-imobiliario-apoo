@@ -134,6 +134,10 @@ public class Main {
 									System.out.println("Seu novo saldo é: "+ jogadorDaVez.getSaldo());
 									System.out.println("---------------------------------------------\n");
 								}
+								//FLUXO EXCEPCIONAL
+								else {
+									System.out.println("Você não possui dinheiro para construir \n");
+								}
 							}
 							else {
 								System.out.println("Não construiu\n");
