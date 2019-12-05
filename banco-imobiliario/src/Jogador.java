@@ -5,14 +5,13 @@ public class Jogador {
 	private String nome;
 	private double saldo;
 	private List<Propriedade> propriedades;
-	private int posicao;
+	private Espaco espaco;
 	
-	public Jogador ( String nome, double saldo, int posicao )
+	public Jogador ( String nome, double saldo )
 	{
 		this.nome = nome;
 		this.saldo = saldo;
 		this.propriedades = new ArrayList<Propriedade>();
-		this.posicao = posicao;
 
 	}
 	
@@ -20,6 +19,10 @@ public class Jogador {
 		return saldo;
 	}
 
+	public List<Propriedade> getPropriedades ()
+	{
+		return this.propriedades;
+	}
 	
 	public void setSaldo(double saldo) {
 		this.saldo = saldo;
@@ -38,14 +41,14 @@ public class Jogador {
 		this.propriedades.add(p);
 	}
 
-	public int getPosicao() {
-		return posicao;
+	public Espaco getEspaco() {
+		return this.espaco;
 	}
 
-	public void setPosicao(int posicao) {
-		this.posicao = posicao + this.posicao;
-		if(this.posicao> 6) {
-			this.posicao = this.posicao-6;
-		}
+	public void setEspaco(Espaco espaco) {
+		this.espaco = espaco;
+
 	}
+	
+
 }
